@@ -5,7 +5,6 @@ const correctAnswers = {
     challenge2: 'flag{d3crypt_15_345y}',
     challenge3: 'webexploitflag'
 };
-
 export const POST = async ({ request }) => {
     const { challenge, answer } = await request.json();
     const correctAnswer = correctAnswers[challenge];
