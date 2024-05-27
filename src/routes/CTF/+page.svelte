@@ -230,8 +230,8 @@ footer {
         <p>Here you can test your skills with various computer and cybersecurity challenges. Good luck!</p>
         <div class="challenges">
             <div class="challenge">
-                <h3>Challenge 1: Hidden Message</h3>
-                <p>Find the hidden message in this <a href="#">image</a>.</p>
+                <h3>Challenge 1: Corrupted image</h3>
+                <p>Fix the corrupted image <a href="https://drive.google.com/file/d/1cB9wuwm1be4iDHBYCHGEBbWpbFTHIfwn/view?usp=sharing">image</a>.</p>
                 <input type="text" bind:value={answer1} placeholder="Your answer...">
                 <button on:click={() => checkAnswer('challenge1', answer1, (msg) => result1 = msg)}>Submit</button>
                 <div class="result {result1 === 'Correct!' ? 'correct' : 'incorrect'}">{result1}</div>
