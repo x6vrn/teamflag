@@ -238,7 +238,7 @@ footer {
             </div>
             <div class="challenge">
                 <h3>Challenge 2: Basic Encryption</h3>
-                <p>Decrypt this message: (QuYWzXe1AkMIZpjx8/jFvNF9bPycxaFf0j1DMU4SR2o=)</p>
+                <p>Decrypt this message: (CibbgAaz8Rk7LGGhgC44g5Fay8ILCYTCh1KRFCYh8Z8=)</p>
                 <input type="text" bind:value={answer2} placeholder="Your answer...">
                 <button on:click={() => checkAnswer('challenge2', answer2, (msg) => result2 = msg)}>Submit</button>
                 <div class="result {result2 === 'Correct!' ? 'correct' : 'incorrect'}">{result2}</div>

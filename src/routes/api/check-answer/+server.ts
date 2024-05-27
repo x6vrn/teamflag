@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 
 const correctAnswers = {
     challenge1: 'hiddenmessage',
-    challenge2: 'FlagT{d3crypt_15_345y}',
+    challenge2: 'flag{d3crypt_15_345y}',
     challenge3: 'webexploitflag'
 };
 
