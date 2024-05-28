@@ -220,9 +220,9 @@ footer {
 </header>
 <nav>
     <a href="/">Home</a>
-    <a href="/contact">Contact</a>
-    <a href="/ctf">CTF</a>
-    <a href="/#login">Login</a>
+    <a href="/contacts">Contact</a>
+    <a href="/CTF">CTF</a>
+    <a href="../#login">Login</a>
 </nav>
 <div class="container">
     <div id="ctf" class="section">

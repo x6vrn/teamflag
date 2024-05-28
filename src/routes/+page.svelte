@@ -8,10 +8,10 @@
         <h1>ServerS Nulls Blous</h1>
     </header>
     <nav>
-        <a href="http://45.88.9.217/">Home</a>
-        <a href="/contact">Contact</a>
+        <a href="">Home</a>
+        <a href="/contacts">Contact</a>
         <a href="/CTF">CTF</a>
-        <a href="#login">Login</a>
+        <a href="../#login">Login</a>
     </nav>
     <div class="container">
         <div id="home" class="section">
@@ -36,7 +36,6 @@
     <footer>
         <p>&copy; 2024 My Professional Website. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script>
 </body>
 <style>
 /* عام */
