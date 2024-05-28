@@ -2,7 +2,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { writable } from 'svelte/store';
-    import { isLoggedIn } from '$lib/stores'; // افتراضياً، قم بتخزين حالة تسجيل الدخول في store
+    import { isLoggedIn } from '$lib/stores';
     
     let user: { name: any; };
   

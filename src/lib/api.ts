@@ -22,4 +22,11 @@ export async function signup(name: string, email: string, password: string): Pro
   
     return response.json();
   }
+  export async function getPoints(userId: number): Promise<number> {
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { points: true }
+    });
   
+    return user?.points || 0;
+  }
