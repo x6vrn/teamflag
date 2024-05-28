@@ -1,6 +1,27 @@
-<script>
-</script>
-<svelte:head>
+<!-- src/routes/+page.svelte -->
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
+    import { isLoggedIn } from '$lib/stores'; // افتراضياً، قم بتخزين حالة تسجيل الدخول في store
+    
+    let user: { name: any; };
+  
+    onMount(async () => {
+      const response = await fetch('/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      user = await response.json();
+    });
+  </script>
+  
+  <!-- الجزء الذي يعرض اسم المستخدم -->
+  {#if $isLoggedIn}
+    <p>Welcome, {user.name}!</p>
+  {/if}
+  <svelte:head>
     <title>Team 0xNess</title>
 </svelte:head>
 <body>
@@ -11,7 +32,7 @@
         <a href="">Home</a>
         <a href="/contacts">Contact</a>
         <a href="/CTF">CTF</a>
-        <a href="/Login">Login</a>
+        <a href="/auth">Login</a>
     </nav>
     <div class="container">
         <div id="home" class="section">
