@@ -11,7 +11,7 @@
         <a href="">Home</a>
         <a href="/contacts">Contact</a>
         <a href="/CTF">CTF</a>
-        <a href="../#login">Login</a>
+        <a href="/Login">Login</a>
     </nav>
     <div class="container">
         <div id="home" class="section">
@@ -21,16 +21,6 @@
         <div id="contact" class="section">
             <h2>Contact</h2>
             <p>If you have any questions, feel free to reach out to us at contact@example.com.</p>
-        </div>
-        <div id="login" class="section">
-            <h2>Login</h2>
-            <div class="login-form">
-                <form>
-                    <input type="text" placeholder="Username" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
         </div>
     </div>
     <footer>
