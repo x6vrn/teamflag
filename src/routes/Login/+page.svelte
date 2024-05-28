@@ -1,31 +1,29 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Information</title>
-    <link rel="stylesheet" href="../css/page.css">
-</head>
+<script>
+</script>
+<svelte:head>
+    <title>Team 0xNess</title>
+</svelte:head>
 <body>
     <header>
-        <h1>Contact Information</h1>
+        <h1>ServerS Nulls Blous</h1>
     </header>
     <nav>
-        <a href="/">Home</a>
-        <a href="">Contact</a>
+        <a href="/">Home</a> <!-- هنا  فيه مشكله انو ابيه لما يكون في الصفحه   حقت التسجيل لما يجي يرجع للهوم مايرجعه  ضبطها  -->
+        <a href="/contacts">Contact</a>
         <a href="/CTF">CTF</a>
         <a href="/Login">Login</a>
     </nav>
     <div class="container">
-        <div class="section">
-            <h2>Cybersecurity</h2>
-            <p>Cybersecurity involves protecting computer systems and networks from theft, damage, and unauthorized access. It includes practices such as secure coding, regular updates, and monitoring for suspicious activities.</p>
-        </div>
-        <div class="section">
-            <h2>Networking</h2>
-            <p>Networking refers to the practice of connecting computers and other devices to share resources. This includes understanding network protocols, managing routers and switches, and ensuring secure and efficient data transmission.</p>
-        </div>
-        <div class="section">
-            <h2>About Our Website</h2>
-            <p>Our website provides valuable information and services to help you navigate the world of technology. Whether you are looking for cybersecurity tips or networking advice, we are here to assist you.</p>
+
+        <div id="login" class="section">
+            <h2>Login</h2>
+            <div class="login-form">
+                <form>
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
     <footer>
