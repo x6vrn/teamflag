@@ -3,17 +3,19 @@
     import { goto } from '$app/navigation';
     import { readable } from 'svelte/store';
     import { getPoints } from '$lib/api.ts';
+    import { PrismaClient } from '@prisma/client';
+    
+    const prisma = new PrismaClient();
+
 
     let isLoggedIn = false;
-    let userId;
+    let userId = localStorage.getItem('userId') ;
 
     onMount(() => {
         isLoggedIn = localStorage.getItem('loggedIn') === '1';
         userId = localStorage.getItem('userId');
-        // if (!isLoggedIn) {
-        //     goto('/auth');
-        // }
     });
+
 
     let answer1 = '';
     let answer2 = '';
