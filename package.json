@@ -23,6 +23,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^5.14.0",
+		"@rollup/plugin-commonjs": "^25.0.8",
 		"jsonwebtoken": "^9.0.2",
 		"utils": "^0.3.1"
 	}
