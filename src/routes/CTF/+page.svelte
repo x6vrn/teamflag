@@ -2,18 +2,32 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import { readable } from 'svelte/store';
-    import { getPoints } from '$lib/api.ts';
-    import { PrismaClient } from '@prisma/client';
-    
-    const prisma = new PrismaClient();
+    // import { getPoints } from '$lib/server/api';
 
 
     let isLoggedIn = false;
-    let userId = localStorage.getItem('userId') ;
+    let userId = "";
+    let userPoints = "";
 
-    onMount(() => {
-        isLoggedIn = localStorage.getItem('loggedIn') === '1';
+   async function getPoints() {
+    isLoggedIn = localStorage.getItem('loggedIn') === '1';
         userId = localStorage.getItem('userId');
+          const response = await fetch(`/api/get-points/${userId}`, {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+            if (response.ok) {
+    const data = await response.json();
+    userPoints = data.points;
+    console.log(data);
+  } 
+
+    }
+
+    onMount(async () => {
+        getPoints();
+
     });
 
 
@@ -50,27 +64,22 @@
         } catch (error) {
             resultSetter('Error: ' + error.message);
         }
+        getPoints();
     }
-    let userPoints = readable(null);
 
 // onMount(async () => {
-//   const response = await fetch('/api/user/points', {
+//   const response = await fetch('/api/get-points/', {
 //     headers: {
 //       'Authorization': `Bearer ${localStorage.getItem('token')}`
 //     }
 //   });
 
-//   if (response.ok) {
-//     const data = await response.json();
-//     userPoints.set(data.points);
-//   } 
 // });
 
-onMount(async () => {
-  points = await getPoints(userId);
-});
-</script>
-<!-- النموذج -->
+
+
+</script>   
+
 
 <header>
     <h1>CTF Challenges</h1>
@@ -85,7 +94,7 @@ onMount(async () => {
 <div class="container">
     <div id="ctf" class="section">
         <h2>Welcome to the CTF Challenges</h2>
-        <p>Your current points: {$userPoints}</p>
+        <p>Your current points: {userPoints}</p>
         <p>Here you can test your skills with various computer and cybersecurity challenges. Good luck!</p>
         <div class="challenges">
             <div class="challenge">

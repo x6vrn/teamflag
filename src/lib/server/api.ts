@@ -1,3 +1,5 @@
+import prisma from '$lib/prisma';
+
 export async function signup(name: string, email: string, password: string): Promise<void> {
     const response = await fetch('/api/user', {
       method: 'POST',

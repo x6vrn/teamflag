@@ -16,7 +16,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
         switch (challenge) {
             case 'challenge1':
-                isCorrect = (answer === 'flag{y0u_f1x_7h3_1m9'); // تأكد من تعديل 'expectedAnswer1' بالإجابة الصحيحة الفعلية
+                isCorrect = (answer === 'flag{y0u_f1x_7h3_1m9}'); // تأكد من تعديل 'expectedAnswer1' بالإجابة الصحيحة الفعلية
                 break;
             case 'challenge2':
                 isCorrect = (answer === 'flag{d3crypt_15_345y}'); // تأكد من تعديل 'expectedAnswer2' بالإجابة الصحيحة الفعلية
