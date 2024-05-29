@@ -26,7 +26,7 @@
 </svelte:head>
 <body>
     <header>
-        <h1>ServerS Nulls Blous</h1>
+        <h1>0xTeam Flag (:</h1>
     </header>
     <nav>
         <a href="">Home</a>
