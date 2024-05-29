@@ -79,7 +79,7 @@ onMount(async () => {
     <a href="/">Home</a>
     <a href="/contacts">Contact</a>
     <a href="/CTF">CTF</a>
-    <a href="/Login">Login</a>
+    <a href="/auth">Login</a>
 </nav>
 
 <div class="container">

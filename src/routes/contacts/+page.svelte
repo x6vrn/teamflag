@@ -6,13 +6,14 @@
 </head>
 <body>
     <header>
-        <h1>Contact Information</h1>
+        <!-- حولوه الى Team Flag Information -->
+        <h1>Contact Information</h1>  
     </header>
     <nav>
         <a href="/">Home</a>
-        <a href="">Contact</a>
+        <a href="/contacts">Contact</a>
         <a href="/CTF">CTF</a>
-        <a href="/Login">Login</a>
+        <a href="/auth">Login</a>
     </nav>
     <div class="container">
         <div class="section">
