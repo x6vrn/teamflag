@@ -79,219 +79,105 @@
 
 
 </script>   
+<head><link rel="stylesheet" href="./src/routes/style.css"></head>
 
-
-<header>
-    <h1>CTF Challenges</h1>
-</header>
-<nav>
-    <a href="/">Home</a>
-    <a href="/contacts">Contact</a>
-    <a href="/CTF">CTF</a>
-    <a href="/auth">Login</a>
-</nav>
-
-<div class="container">
-    <div id="ctf" class="section">
-        <h2>Welcome to the CTF Challenges</h2>
-        <p>Your current points: {userPoints}</p>
-        <p>Here you can test your skills with various computer and cybersecurity challenges. Good luck!</p>
-        <div class="challenges">
-            <div class="challenge">
-                <h3>Challenge 1: Corrupted image</h3>
-                <p>Fix the corrupted image <a href="https://drive.google.com/file/d/1cB9wuwm1be4iDHBYCHGEBbWpbFTHIfwn/view?usp=sharing">image</a>.</p>
-                <input type="text" bind:value={answer1} placeholder="Your answer...">
-                <button on:click={() => checkAnswer('challenge1', answer1, (msg) => result1 = msg, 'result1')}>Submit</button>
-                <div class="result {result1 === 'Correct!' ? 'correct' : 'incorrect'}">{result1}</div>
+    {#if !userId}
+    <div class="relative z-10 transition" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!--
+          Background backdrop, show/hide based on modal state.
+      
+          Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity transition"></div>
+      
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto transition">
+          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 transition">
+            <!--
+              Modal panel, show/hide based on modal state.
+      
+              Entering: "ease-out duration-300"
+                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                To: "opacity-100 translate-y-0 sm:scale-100"
+              Leaving: "ease-in duration-200"
+                From: "opacity-100 translate-y-0 sm:scale-100"
+                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                  <div class="mx-auto flex h-12 w-12 flex-shrink-0 transition items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                    <svg class="h-6 w-6 text-red-600 transition" fill="none"  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>
+                  </div>
+                  <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">You Dont Have An Account</h3>
+                    <div class="mt-2">
+                      <p class="text-sm text-gray-500">You Dont Have Acsses To The Page Wihout Account Please Create Account</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 transition">
+                <a type="button" class="inline-flex w-full justify-center rounded-md transition bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto" href="/auth">Create Account</a>
+                <a type="button" class="mt-3 inline-flex w-full justify-center rounded-md transition bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" href="/">Cancel</a>
+              </div>
             </div>
-            <div class="challenge">
-                <h3>Challenge 2: Basic Encryption</h3>
-                <p>Decrypt this message: (CibbgAaz8Rk7LGGhgC44g5Fay8ILCYTCh1KRFCYh8Z8=)</p>
-                <input type="text" bind:value={answer2} placeholder="Your answer...">
-                <button on:click={() => checkAnswer('challenge2', answer2, (msg) => result2 = msg, 'result2')}>Submit</button>
-                <div class="result {result2 === 'Correct!' ? 'correct' : 'incorrect'}">{result2}</div>
-            </div>
-            <div class="challenge">
-                <h3>Challenge 3: Web Exploit</h3>
-                <p>Find the vulnerability on this <a href="#">webpage</a> and exploit it to find the flag.</p>
-                <input type="text" bind:value={answer3} placeholder="Your answer...">
-                <button on:click={() => checkAnswer('challenge3', answer3, (msg) => result3 = msg, 'result3')}>Submit</button>
-                <div class="result {result3 === 'Correct!' ? 'correct' : 'incorrect'}">{result3}</div>
+          </div>
+        </div>
+      </div>
+      
+    {/if}
+    <header class="">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <h1 class="h-8 w-auto  text-lg font-bold text-blue-600">Team Flag</h1>
+            </a>
+          </div>
+            <a href="/" class="text-sm font-medium leading-6 text-blue-600 px-3 ">Home</a>
+            <a href="/contacts" class="text-sm font-medium leading-6 text-blue-600 px-3 ">Contact</a>
+            <a href="/CTF" class="text-sm font-medium leading-6 text-blue-600 px-3 ">CTF</a>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="/auth" class="text-sm font-bold leading-6  bg-blue-600 p-2 px-3 rounded-lg text-white hover:bg-blue-800 transition">Log in <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </nav>    
+    </header>
+<body class="">
+    <div class="rounded-lg mt-28 ">
+        <div id="ctf" class="ml-6">
+            <h2 class=" text-3xl font-bold text-blue-600">Welcome to the CTF Challenges</h2>
+            <p>Here you can test your skills with various computer and cybersecurity challenges. Good luck!</p>
+            <p class="mt-4">Your current points: <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">{userPoints}</span></p>
+            <div class="">
+                <div class="p-1">
+                    <h3 class="mt-6 text-2xl">Challenge 1: Corrupted image <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">easy</span></h3>
+                    <p>Fix the corrupted <a class=" text-blue-600" href="https://drive.google.com/file/d/1cB9wuwm1be4iDHBYCHGEBbWpbFTHIfwn/view?usp=sharing">image</a>.</p>
+                    <input type="text" bind:value={answer1} placeholder="  Your answer..." class="block w-full rounded-lg border-0 py-3.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6">
+                    <button on:click={() => checkAnswer('challenge1', answer1, (msg) => result1 = msg, 'result1')} class="bg-blue-500 p-2 px-3 mt-4 rounded-lg text-white">Submit</button>
+                    <div class="result {result1 === 'Correct!' ? 'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20' : 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}">{result1}</div>
+                </div>
+                <div class="p-1">
+                    <h3 class="mt-6 text-2xl">Challenge 2: Forensics <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Medium</span></h3>
+                    <p>Note: the answer should be in lowercase <a href="https://drive.google.com/file/d/1TquatPqi7wPeWpH0SwdDCI7Z5WgQseMc/view?usp=sharing" class="text-blue-500">Download</a> </p>
+
+                    <input type="text" bind:value={answer2} placeholder="  Your answer..." class="block w-full rounded-lg border-0 py-3.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6">
+                    <button on:click={() => checkAnswer('challenge2', answer2, (msg) => result2 = msg, 'result2')} class="bg-blue-500 p-2 px-3 mt-4 rounded-lg text-white">Submit</button>
+                    <div class="result {result2 === 'Correct!' ? 'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20' : 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}">{result2}</div>
+                </div>
+                <div class="p-1">
+                    <h3 class="mt-6 text-2xl">Challenge 3: Web Exploit</h3>
+                    <p>Find the vulnerability on this <a href="#">webpage</a> and exploit it to find the flag.</p>
+                    <input type="text" bind:value={answer3} placeholder="  Your answer..."  class="block w-full rounded-lg border-0 py-3.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6">
+                    <button on:click={() => checkAnswer('challenge3', answer3, (msg) => result3 = msg, 'result3')} class="bg-blue-500 p-2 px-3 mt-4 rounded-lg text-white">Submit</button>
+                    <div class="result {result3 === 'Correct!' ? 'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20' : 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}">{result3}</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer>
-    <p>&copy; 2024 CTF Challenges. All rights reserved.</p>
-</footer>
-<style>
-    /* عام */
-    body {
-        font-family: 'San Francisco', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-    
-    /* الرأس */
-    header {
-        background-color: #007aff;
-        color: #fff;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid #ddd;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-radius: 0 0 12px 12px;
-    }
-    
-    /* التنقل */
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: #f4f4f9;
-        padding: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-    }
-    
-    nav a {
-        color: #007aff;
-        padding: 1rem;
-        text-decoration: none;
-        margin: 0 0.5rem;
-        border-radius: 8px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    
-    nav a:hover {
-        background-color: #e0e0e0;
-    }
-    
-    /* الحاوية */
-    .container {
-        padding: 2rem;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    /* القسم */
-    .section {
-        margin: 2rem 0;
-        padding: 1.5rem;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .section h2 {
-        margin-bottom: 1rem;
-        color: #333;
-    }
-    
-    /* التحديات */
-    .challenge input[type="text"] {
-        width: 100%;
-        padding: 0.75rem;
-        margin-top: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        font-size: 1rem;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    
-    .challenge input[type="text"]:focus {
-        border-color: #007aff;
-        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
-    }
-    
-    .challenge button {
-        margin-top: 0.5rem;
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 12px;
-        background-color: #007aff;
-        color: #fff;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s, box-shadow 0.3s;
-    }
-    
-    .challenge button:hover {
-        background-color: #005bb5;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .result {
-        margin-top: 1rem;
-        font-weight: bold;
-    }
-    
-    .correct {
-        color: green;
-    }
-    
-    .incorrect {
-        color: red;
-    }
-    
-    /* النموذج */
-    .login-form {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 2rem;
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .login-form input {
-        width: 100%;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    
-    .login-form input:focus {
-        border-color: #007aff;
-        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
-    }
-    
-    .login-form button {
-        width: 100%;
-        padding: 1rem;
-        border: none;
-        border-radius: 12px;
-        background-color: #007aff;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s, box-shadow 0.3s;
-    }
-    
-    .login-form button:hover {
-        background-color: #005bb5;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* التذييل */
-    footer {
-        background-color: #007aff;
-        color: #fff;
-        text-align: center;
-        padding: 1rem;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 12px 12px 0 0;
-    }
-    </style>
+</body>

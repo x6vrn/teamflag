@@ -7,7 +7,7 @@
   let email = '';
   let password = '';
   let message = '';
-  let isSignup = true; // للتحكم في إظهار نموذج التسجيل أو تسجيل الدخول
+  let isSignup = false; // للتحكم في إظهار نموذج التسجيل أو تسجيل الدخول
   let isLoggedIn = writable(false); // حالة تسجيل الدخول
 
   // تحميل حالة تسجيل الدخول من التخزين المحلي عند تحميل الصفحة
@@ -62,40 +62,49 @@
       goto('/auth');
   }
 </script>
+<svelte:head><link rel="stylesheet" href="./src/routes/style.css"></svelte:head>
 
-<header>
-    <h1>ServerS Nulls Blous</h1>
+<header class="bg-white">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="#" class="-m-1.5 p-1.5">
+        <h1 class="h-8 w-auto text-lg font-bold text-blue-600">Team Flag</h1>
+      </a>
+    </div>
+      <a href="/" class="text-sm font-medium leading-6 text-blue-600 px-3">Home</a>
+      <a href="/contacts" class="text-sm font-medium leading-6 text-blue-600 px-3">Contact</a>
+      <a href="/CTF" class="text-sm font-medium leading-6 text-blue-600 px-3">CTF</a>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="/auth" class="text-sm font-bold leading-6 bg-blue-600 p-2 px-3 rounded-lg text-white hover:bg-blue-800 transition">Log in <span aria-hidden="true">&rarr;</span></a>
+
+      </div>
+  </nav>    
 </header>
-<nav>
-    <a href="/">Home</a>
-    <a href="/contacts">Contact</a>
-    <a href="/CTF">CTF</a>
-    <a href="/auth">Login</a>
-</nav>
-
-<div>
-  <div class="toggle-buttons">
-    <button on:click={() => isSignup = true} class:is-active={isSignup}>Sign Up</button>
-    <button on:click={() => isSignup = false} class:is-active={!isSignup}>Login</button>
+<body class="div m-0 p-0 box-border text-slate-800">
+  <div class=" flex justify-center m-4 max-w-md mx-auto mt-10 p-8">
+  <h1 class=" text-3xl font-bold text-blue-500">Team Flag</h1>
   </div>
-
-  {#if isSignup}
-    <h2>Sign Up</h2>
-    <input type="text" bind:value={name} placeholder="Name" />
-    <input type="email" bind:value={email} placeholder="Email" />
-    <input type="password" bind:value={password} placeholder="Password" />
-    <button on:click={handleSignup}>Sign Up</button>
-  {:else}
-    <h2>Login</h2>
-    <input type="email" bind:value={email} placeholder="Email" />
-    <input type="password" bind:value={password} placeholder="Password" />
-    <button on:click={handleLogin}>Login</button>
-  {/if}
-
-  {#if message}
-    <p>{message}</p>
-  {/if}
-</div>
+  <div class="mt-10 p-8 max-w-sm">  
+    {#if isSignup}
+      <div class=" rounded-lg max-w-md m-auto mt-10 p-8 px-10">
+        <input type="text" bind:value={name} placeholder="Name" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6" />
+        <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+        <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+        <button class="mt-10 text-sm text-gray-500" on:click={() => isSignup = false}> you already have an <span class="text-blue-500">Account</span></button>
+        <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" on:click={handleSignup}>Sign Up</button>
+      </div>
+    {:else}
+      <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+      <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+      <button class="mt-10 text-sm text-gray-500" >Not a member? <span on:click={() => isSignup = true}  class="text-blue-500">Sign up</span></button>
+      <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" on:click={handleLogin} >Login</button>
+    {/if}
+  
+    {#if message}
+      <p>{message}</p>
+    {/if}
+  </div>
+</body>
 
 <style>
   /* عام */
@@ -109,97 +118,19 @@
   }
 
   /* الرأس */
-  header {
-      background-color: #007aff;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-radius: 0 0 12px 12px;
-  }
 
   /* التنقل */
-  nav {
-      display: flex;
-      justify-content: center;
-      background-color: #f4f4f9;
-      padding: 0.5rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-  }
-
-  nav a {
-      color: #007aff;
-      padding: 1rem;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      border-radius: 8px;
-      transition: background-color 0.3s, color 0.3s;
-  }
-
-  nav a:hover {
-      background-color: #e0e0e0;
-  }
-
-  div {
+  .div div{
     max-width: 400px;
     margin:  auto;
-    margin-top: 40px;
-    padding: 2rem;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 120px;
   }
 
-  input {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  button{
+    margin-top: 10px;
+    padding: 5px;
   }
 
-  button {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 12px;
-    background-color: #007aff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-  }
 
-  button:hover {
-    background-color: #005bb5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 
-  .toggle-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .toggle-buttons button {
-    flex: 1;
-    padding: 0.5rem;
-    margin: 0 0.5rem;
-    border-radius: 12px;
-    background: #e0e0e0;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
-  }
-
-  .toggle-buttons button.is-active {
-    background: #007aff;
-    color: #fff;
-  }
 </style>
