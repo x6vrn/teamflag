@@ -2,19 +2,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Information</title>
-    <link rel="stylesheet" href="../css/page.css">
+    <head><link rel="stylesheet" href="./src/routes/style.css"></head>
 </head>
+<header class="bg-white">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <h1 class="h-8 w-auto  text-lg font-bold text-blue-600">Team Flag</h1>
+        </a>
+      </div>
+        <a href="/" class="text-sm font-medium leading-6 text-blue-600 px-3 ">Home</a>
+        <a href="/contacts" class="text-sm font-medium leading-6 text-blue-600 px-3 ">Contact</a>
+        <a href="/CTF" class="text-sm font-medium leading-6 text-blue-600 px-3 ">CTF</a>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/auth" class="text-sm font-bold leading-6  bg-blue-600 p-2 px-3 rounded-lg text-white hover:bg-blue-800 transition">Log in <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>    
+</header>
+
 <body>
-    <header>
-        <!-- حولوه الى Team Flag Information -->
-        <h1>Contact Information</h1>  
-    </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/contacts">Contact</a>
-        <a href="/CTF">CTF</a>
-        <a href="/auth">Login</a>
-    </nav>
     <div class="container">
         <div class="section">
             <h2>Cybersecurity</h2>
@@ -45,42 +51,8 @@
     }
     
     /* الرأس */
-    header {
-        background-color: #007aff;
-        color: #fff;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid #ddd;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-radius: 0 0 12px 12px;
-    }
     
     /* التنقل */
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: #f4f4f9;
-        padding: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-    }
-    
-    nav a {
-        color: #007aff;
-        padding: 1rem;
-        text-decoration: none;
-        margin: 0 0.5rem;
-        border-radius: 8px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    
-    nav a:hover {
-        background-color: #e0e0e0;
-    }
-    
     /* الحاوية */
     .container {
         padding: 2rem;
