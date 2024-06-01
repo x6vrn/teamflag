@@ -79,8 +79,6 @@
 
 
 </script>   
-<head><link rel="stylesheet" href="./src/routes/style.css"></head>
-
     {#if !userId}
     <div class="relative z-10 transition" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <!--
@@ -165,6 +163,7 @@
                 <div class="p-1">
                     <h3 class="mt-6 text-2xl">Challenge 2: Forensics <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Medium</span></h3>
                     <p>Note: the answer should be in lowercase <a href="https://drive.google.com/file/d/1TquatPqi7wPeWpH0SwdDCI7Z5WgQseMc/view?usp=sharing" class="text-blue-500">Download</a> </p>
+                    <p>Flag format : flagy&#123;&#125;</p>
 
                     <input type="text" bind:value={answer2} placeholder="  Your answer..." class="block w-full rounded-lg border-0 py-3.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6">
                     <button on:click={() => checkAnswer('challenge2', answer2, (msg) => result2 = msg, 'result2')} class="bg-blue-500 p-2 px-3 mt-4 rounded-lg text-white">Submit</button>

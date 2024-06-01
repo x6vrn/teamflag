@@ -16,13 +16,13 @@ export const POST: RequestHandler = async ({ request }) => {
 
         switch (challenge) {
             case 'challenge1':
-                isCorrect = (answer === 'flag{y0u_f1x_7h3_1m9}'); // تأكد من تعديل 'expectedAnswer1' بالإجابة الصحيحة الفعلية
+                isCorrect = (answer === 'flag{fabe64b3face55c673a0236e65b62c66}');
                 break;
             case 'challenge2':
-                isCorrect = (answer === 'flag{d3crypt_15_345y}'); // تأكد من تعديل 'expectedAnswer2' بالإجابة الصحيحة الفعلية
+                isCorrect = (answer === 'flagy{cec6abe63ba02655662c47f6e65b3fa3}');
                 break;
             case 'challenge3':
-                isCorrect = (answer === 'expectedAnswer3'); // تأكد من تعديل 'expectedAnswer3' بالإجابة الصحيحة الفعلية
+                isCorrect = (answer === 'flag{64b35facecf502be6736ec636652aba6}');
                 break;
             default:
                 throw new Error('Invalid challenge');

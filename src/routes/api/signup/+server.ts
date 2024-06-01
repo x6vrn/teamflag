@@ -8,7 +8,10 @@ export const POST: RequestHandler = async ({ request }) => {
     const existingUser = await prisma.user.findUnique({
       where: { email }
     });
-
+    if (email === "" || password === "" || name === "") {
+      return json({message : 'Please Fill Your Credentials'})
+    }
+    
     if (existingUser) {
       return json({ message: 'Email already exists' }, { status: 400 });
     }
