@@ -16,7 +16,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
         switch (challenge) {
             case 'challenge1':
-                isCorrect = (answer === 'flag{fabe64b3face55c673a0236e65b62c66}');
+                isCorrect = (answer === 'flag{fabe64b3face55c673a0236e65b62c66}'); 
                 break;
             case 'challenge2':
                 isCorrect = (answer === 'flagy{cec6abe63ba02655662c47f6e65b3fa3}');
