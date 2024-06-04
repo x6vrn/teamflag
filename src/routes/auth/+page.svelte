@@ -62,7 +62,6 @@
       goto('/auth');
   }
 </script>
-<svelte:head><link rel="stylesheet" href="./src/routes/style.css"></svelte:head>
 
 <header class="bg-white">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -86,18 +85,16 @@
   </div>
   <div class="mt-10 p-8 max-w-sm">  
     {#if isSignup}
-      <div class=" rounded-lg max-w-md m-auto mt-10 p-8 px-10">
         <input type="text" bind:value={name} placeholder="Name" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6" />
         <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
         <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
         <button class="mt-10 text-sm text-gray-500" on:click={() => isSignup = false}> you already have an <span class="text-blue-500">Account</span></button>
-        <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" on:click={handleSignup}>Sign Up</button>
-      </div>
+        <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleSignup}>Sign Up</button>
     {:else}
       <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
       <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
       <button class="mt-10 text-sm text-gray-500" >Not a member? <span on:click={() => isSignup = true}  class="text-blue-500">Sign up</span></button>
-      <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" on:click={handleLogin} >Login</button>
+      <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleLogin} >Login</button>
     {/if}
   
     {#if message}
