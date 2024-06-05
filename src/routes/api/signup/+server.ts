@@ -15,6 +15,9 @@ export const POST: RequestHandler = async ({ request }) => {
     if (existingUser) {
       return json({ message: 'Email already exists' }, { status: 400 });
     }
+    if (email == null || password == null || name == null) {
+      return json({ message: 'Please Fill Your Credentials' }, { status: 400 });
+    }  
 
     const user = await prisma.user.create({
       data: {

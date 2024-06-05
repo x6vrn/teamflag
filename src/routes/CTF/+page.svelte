@@ -79,7 +79,8 @@
 
 
 </script>   
-    {#if !userId}
+
+  {#if !userId}
     <div class="relative z-10 transition" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <!--
           Background backdrop, show/hide based on modal state.
@@ -131,7 +132,7 @@
       </div>
       
     {/if}
-    <header class="">
+    <header class="bg-white">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
@@ -149,7 +150,7 @@
 <body class="">
     <div class="rounded-lg mt-28 ">
         <div id="ctf" class="ml-6">
-            <h2 class=" text-3xl font-bold text-blue-600">Welcome to the CTF Challenges</h2>
+            <h2 class=" text-3xl font-bold text-blue-00">Welcome to the CTF Challenges</h2>
             <p>Here you can test your skills with various computer and cybersecurity challenges. Good luck!</p>
             <p class="mt-4">Your current points: <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">{userPoints}</span></p>
             <div class="">

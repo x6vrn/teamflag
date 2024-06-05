@@ -11,6 +11,9 @@ export const POST: RequestHandler = async ({ request }) => {
             where: { email }
         });
 
+        if (email == null || password == null) {
+            return new Response(JSON.stringify({ message: 'Please Fill Your Credentials' }), { status: 400 });
+          }        
         if (!user || user.password !== password) {
             return new Response(JSON.stringify({ message: 'Invalid credentials' }), { status: 401 });
         }
