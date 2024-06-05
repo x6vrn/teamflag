@@ -85,20 +85,20 @@
   </div>
   <div class="mt-10 p-8 max-w-sm">  
     {#if isSignup}
-        <input type="text" bind:value={name} placeholder="Name" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6" />
-        <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
-        <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
-        <button class="mt-10 text-sm text-gray-500" on:click={() => isSignup = false}> you already have an <span class="text-blue-500">Account</span></button>
-        <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleSignup}>Sign Up</button>
-    {:else}
+      <input type="text" bind:value={name} placeholder="Name" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6" />
+      <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+      <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
+      <button class="mt-10 text-sm text-gray-500" on:click={() => isSignup = false}> you already have an <span class="text-blue-500">Account</span></button>
+      <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleSignup}>Sign Up</button>
+      {:else}
       <input type="email" bind:value={email} placeholder="Email" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:bluae-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
       <input type="password" bind:value={password} placeholder="Password" class="block w-full rounded-lg border-0 py-3 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:blue-indigo-600 sm:text-sm sm:leading-6 mt-4 p-6"/>
       <button class="mt-10 text-sm text-gray-500" >Not a member? <span on:click={() => isSignup = true}  class="text-blue-500">Sign up</span></button>
-      <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleLogin} >Login</button>
+      <button class="transition flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm bg-blue-500  hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700" on:click={handleLogin} >Login</button>
     {/if}
   
     {#if message}
-      <p>{message}</p>
+      <p class="result {message === 'User created successfully' ? 'mt-4 inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20' : 'mt-4 inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}">{message}</p>
     {/if}
   </div>
 </body>
