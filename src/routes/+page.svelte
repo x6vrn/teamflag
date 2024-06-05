@@ -21,12 +21,12 @@
   
   <!-- الجزء الذي يعرض اسم المستخدم -->
   <svelte:head>
-    <title>Team 0xNess</title>
+    <title>Team Flag</title>
 </svelte:head>
 <header class="bg-white">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="" class="-m-1.5 p-1.5">
           <h1 class="h-8 w-auto text-lg font-bold text-blue-600">Team Flag</h1>
         </a>
       </div>
