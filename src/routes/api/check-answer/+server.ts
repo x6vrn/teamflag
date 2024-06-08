@@ -22,7 +22,10 @@ export const POST: RequestHandler = async ({ request }) => {
                 isCorrect = (answer === 'flagy{cec6abe63ba02655662c47f6e65b3fa3}'); 
                 break;
             case 'challenge3':
-                isCorrect = (answer === 'flag{be6a0236e65b64b3fa32c66}');
+                isCorrect = (answer === 'flag{e6c634a326636b5fa06ebb2}');
+                break;
+            case 'challenge4':
+                isCorrect = (answer === 'test');
                 break;
             default:
                 throw new Error('Invalid challenge');
