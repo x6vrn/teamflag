@@ -1,6 +1,7 @@
 import prisma from '$lib/prisma';
 
 export async function signup(name: string, email: string, password: string): Promise<void> {
+    
     const response = await fetch('/api/user', {
       method: 'POST',
       headers: {
@@ -8,7 +9,6 @@ export async function signup(name: string, email: string, password: string): Pro
       },
       body: JSON.stringify({ name, email, password })
     });
-  
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.message || 'Failed to sign up');
@@ -21,7 +21,6 @@ export async function signup(name: string, email: string, password: string): Pro
     if (!response.ok) {
       throw new Error('Failed to fetch users');
     }
-  
     return response.json();
   }
   export async function getPoints(userId: number): Promise<number> {

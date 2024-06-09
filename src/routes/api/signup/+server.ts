@@ -3,6 +3,7 @@ import prisma from '$lib/prisma';
 
 export const POST: RequestHandler = async ({ request }) => {
   const { name, email, password } = await request.json();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   try {
     const existingUser = await prisma.user.findUnique({
@@ -18,6 +19,9 @@ export const POST: RequestHandler = async ({ request }) => {
     if (email == null || password == null || name == null) {
       return json({ message: 'Please Fill Your Credentials' }, { status: 400 });
     }  
+    if (!emailPattern.test(email)) {
+      return json({ message: 'Email must be a valid address' }, { status: 400 });
+    }
 
     const user = await prisma.user.create({
       data: {
